@@ -74,23 +74,37 @@ This pack provides a **complete pair programming framework** that:
 brew install bguidolim/tap/managed-claude-stack
 
 # 2. Add this pack
-mcs pack add <your-username>/mcs-pair-programming
+mcs pack add Viniciuscarvalho/mcs-pair-programming
 
-# 3. Sync your project
-cd ~/Developer/my-project
+# 3. Go to your project and sync
+cd ~/Developer/your-project
 mcs sync
 
 # 4. Verify
 mcs doctor
 ```
 
-During `mcs sync`, you'll be prompted for:
+`mcs sync` will ask you 3 questions:
 
 | Prompt | What It Configures | Default |
 |--------|--------------------|---------|
-| **Dev role** | How Claude addresses you | `Developer` |
-| **Pair style** | Default pairing mode | `driver-navigator` |
+| **Your role** | How Claude addresses you | `Developer` |
+| **Pairing style** | Default pairing mode | `driver-navigator` |
 | **Review strictness** | How strict the review gate is | `standard` |
+
+That's it. Open Claude Code in your project — the `SessionStart` hook runs automatically and you'll see:
+
+```
+🤝 Pair Programming — Session Start
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Stack:     Swift/iOS
+CLAUDE.md: ✅ Found (project root)
+Git:       Branch: feature/xyz | Uncommitted changes: 3
+Style:     driver-navigator (use /pair to switch)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+You're ready to pair.
 
 ---
 
