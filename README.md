@@ -1,4 +1,11 @@
-# Pair Programming
+# Pair Programming 🤝 — Claude Code as your pair programmer.
+
+![Pair Programming Banner](assets/banner.svg)
+
+[![mcs](https://img.shields.io/badge/mcs-%3E%3D_2026.2.28-7ee787?style=flat-square)](https://github.com/bguidolim/mcs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-ffd60a?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-58a6ff?logo=anthropic&logoColor=white&style=flat-square)](https://claude.ai/code)
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea6045?style=flat-square&logo=github-sponsors)](https://github.com/sponsors/Viniciuscarvalho)
 
 A [tech pack](https://github.com/bguidolim/mcs) that turns Claude Code into a **stack-agnostic pair programming partner** — plug-and-play, zero code modifications required.
 
