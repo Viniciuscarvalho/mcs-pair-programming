@@ -13,7 +13,7 @@ Built for the [`mcs`](https://github.com/bguidolim/mcs) configuration engine.
 
 ```
 identifier: mcs-pair-programming
-requires:   mcs >= 2026.2.28
+minMCSVersion: "2026.2.28"
 ```
 
 ---
