@@ -7,8 +7,7 @@ description: >-
   Plug-and-play: works with any language, framework, or project structure.
   Reads CLAUDE.md conventions automatically and adapts the workflow.
 
-requires:
-  mcs: ">= 2026.2.28"
+minMCSVersion: "2026.2.28"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PROMPTS — collected at `mcs sync` time, injected into templates via __VAR__
