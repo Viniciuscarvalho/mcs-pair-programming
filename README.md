@@ -2,14 +2,14 @@
 
 ![Pair Programming Banner](assets/banner.svg)
 
-[![mcs](https://img.shields.io/badge/mcs-%3E%3D_2026.2.28-7ee787?style=flat-square)](https://github.com/bguidolim/mcs)
+[![mcs](https://img.shields.io/badge/mcs-%3E%3D_2026.2.28-7ee787?style=flat-square)](https://github.com/mcs-cli/mcs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-ffd60a?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-58a6ff?logo=anthropic&logoColor=white&style=flat-square)](https://claude.ai/code)
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea6045?style=flat-square&logo=github-sponsors)](https://github.com/sponsors/Viniciuscarvalho)
 
-A [tech pack](https://github.com/bguidolim/mcs) that turns Claude Code into a **stack-agnostic pair programming partner** — plug-and-play, zero code modifications required.
+A [tech pack](https://github.com/mcs-cli/mcs) that turns Claude Code into a **stack-agnostic pair programming partner** — plug-and-play, zero code modifications required.
 
-Built for the [`mcs`](https://github.com/bguidolim/mcs) configuration engine.
+Built for the [`mcs`](https://github.com/mcs-cli/mcs) configuration engine.
 
 ```
 identifier: mcs-pair-programming
@@ -78,7 +78,7 @@ This pack provides a **complete pair programming framework** that:
 
 ```bash
 # 1. Install mcs (if not already)
-brew install bguidolim/tap/managed-claude-stack
+brew install mcs-cli/tap/mcs
 
 # 2. Add this pack
 mcs pack add Viniciuscarvalho/mcs-pair-programming
@@ -201,8 +201,8 @@ This pack is designed to work out-of-the-box, but you can customize by:
 
 | Pack | Why |
 |------|-----|
-| [mcs-core-pack](https://github.com/bguidolim/mcs-core-pack) | Git workflows, Serena code navigation, baseline settings |
-| [mcs-continuous-learning](https://github.com/bguidolim/mcs-continuous-learning) | Persistent memory across sessions |
+| [dev](https://github.com/mcs-cli/dev) | Git workflows, plugins, baseline settings |
+| [memory](https://github.com/mcs-cli/memory) | Persistent memory across sessions |
 
 ---
 
