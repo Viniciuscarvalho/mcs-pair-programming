@@ -1,28 +1,30 @@
 schemaVersion: 1
-identifier: mcs-pair-programming
+identifier: pair-programming
 displayName: "Pair Programming Guide"
-version: "1.0.0"
 description: >-
   Stack-agnostic pair programming guide for Claude Code.
   Plug-and-play: works with any language, framework, or project structure.
   Reads CLAUDE.md conventions automatically and adapts the workflow.
-
-minMCSVersion: "2026.2.28"
+author: Vinicius Carvalho
+minMCSVersion: "2026.3.26"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PROMPTS — collected at `mcs sync` time, injected into templates via __VAR__
 # ─────────────────────────────────────────────────────────────────────────────
 prompts:
-  - id: dev_role
-    message: "Your primary role (e.g. iOS Developer, Backend Engineer, Fullstack):"
+  - key: DEV_ROLE
+    type: input
+    label: "Your primary role (e.g. iOS Developer, Backend Engineer, Fullstack):"
     default: "Developer"
 
-  - id: pair_style
-    message: "Default pairing style — driver-navigator | ping-pong | mob:"
+  - key: PAIR_STYLE
+    type: input
+    label: "Default pairing style — driver-navigator | ping-pong | mob:"
     default: "driver-navigator"
 
-  - id: review_strictness
-    message: "Code review strictness — relaxed | standard | strict:"
+  - key: REVIEW_STRICTNESS
+    type: input
+    label: "Code review strictness — relaxed | standard | strict:"
     default: "standard"
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -37,50 +39,61 @@ components:
       code review gates, and CLAUDE.md-aware conventions.
     skill:
       source: skills/pair-programming
+      destination: pair-programming
 
   # ── Hook: session start context loader ──────────────────────────────────
   - id: session-context-hook
     description: >-
       On session start, detects project stack, reads CLAUDE.md,
       and prints a pairing-ready context summary.
+    hookEvent: SessionStart
     hook:
       source: hooks/session-context.sh
-      event: SessionStart
+      destination: session-context.sh
 
   # ── Hook: pre-commit pair review gate ───────────────────────────────────
   - id: pair-review-hook
     description: >-
       Before every commit, reminds Claude to run the pair review checklist
       appropriate to the detected stack.
+    hookEvent: UserPromptSubmit
     hook:
       source: hooks/pair-review-gate.sh
-      event: UserPromptSubmit
+      destination: pair-review-gate.sh
 
   # ── Command: /pair ──────────────────────────────────────────────────────
   - id: pair-command
     description: "Start or switch pairing mode with /pair"
     command:
       source: commands/pair.md
+      destination: pair.md
 
   # ── Command: /review ────────────────────────────────────────────────────
   - id: review-command
     description: "Run pair review checklist with /review"
     command:
       source: commands/review.md
+      destination: review.md
 
   # ── Command: /handoff ───────────────────────────────────────────────────
   - id: handoff-command
     description: "Generate a session handoff summary with /handoff"
     command:
       source: commands/handoff.md
-
-  # ── Template: CLAUDE.local.md instructions ──────────────────────────────
-  - id: pair-programming-template
-    description: "Injects pair programming instructions into CLAUDE.local.md"
-    template:
-      source: templates/pair-programming.md
+      destination: handoff.md
 
   # ── Settings ────────────────────────────────────────────────────────────
   - id: pair-settings
     description: "Plan mode + extended thinking for thoughtful pairing"
     settingsFile: config/settings.json
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TEMPLATES — CLAUDE.local.md sections
+# ─────────────────────────────────────────────────────────────────────────────
+templates:
+  - sectionIdentifier: pair-programming
+    placeholders:
+      - __DEV_ROLE__
+      - __PAIR_STYLE__
+      - __REVIEW_STRICTNESS__
+    contentFile: templates/pair-programming.md
